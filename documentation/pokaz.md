@@ -17,4 +17,7 @@ Zmiana oswietlenia wywoluje wplyw na zaslony(blinds_set) i oswietlenie wewnetrzn
 
 Program reaguje na przerwanie w formie alarmu pozarowego.
 
-![](fire.JPG)
+![](fire.JPG)  
+  
+Projekt dostepny jest pod adresem `github.com/sf96/zephyrhome`
+
