@@ -1,0 +1,55 @@
+using sysbus
+
+mach create
+machine LoadPlatformDescription @platforms/cpus/stm32f103.repl
+machine LoadPlatformDescription @scripts/renode_ports.repl
+
+$bin?=@build/zephyr/zephyr.elf
+showAnalyzer uart2
+
+macro start_reset
+"""
+    sysbus LoadELF $bin
+"""
+
+macro switch
+"""
+    sysbus.gpioPortA.btn0 PressAndRelease
+"""
+
+macro fire_alarm_set
+"""
+    sysbus.gpioPortA.btn1 PressAndRelease
+"""
+
+macro fire_alarm_stop
+"""
+    sysbus.gpioPortA.btn2 PressAndRelease
+"""
+
+macro fire_alarm_status
+"""
+    sysbus.gpioPortA ReadDoubleWord 0xc
+"""
+
+macro lights_up
+"""
+    sysbus.i2c1.si70xx Humidity 80
+"""
+
+macro lights_down
+"""
+    sysbus.i2c1.si70xx Humidity 10
+"""
+
+macro lights_status
+"""
+    sysbus.gpioPortB ReadDoubleWord 0xc
+"""
+
+macro blinds_status
+"""
+    sysbus.gpioPortC ReadDoubleWord 0xc
+"""
+
+runMacro $start_reset

@@ -1,0 +1,15 @@
+btn0: Miscellaneous.Button @ gpioPortA 0 {
+    IRQ -> gpioPortA@0
+}
+
+btn1: Miscellaneous.Button @ gpioPortA 1 {
+    IRQ -> gpioPortA@1
+}
+
+btn2: Miscellaneous.Button @ gpioPortA 2 {
+    IRQ -> gpioPortA@2
+}
+
+si70xx: Sensors.SI70xx @ i2c1 0x40 {
+    model: Model.SI7021
+}
